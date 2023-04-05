@@ -29,7 +29,7 @@
                     </div>
                 </form>
                 {%if api%}
-                {%if api = "opps! there was an error"%}
+                {%if api == "opps! there was an error"%}
                 <div class="alert alert-warning"> Oh no! something went wrong.Please try again in sometime. </div>
                 {%else%}
                 <h1> Munachi has a total of <strong> 100 Calories</strong>
@@ -108,6 +108,8 @@
                         </div>
                     </div>
                 </div>
+                {%endif%}
+                {%endif%}
             </div>
 </body>
 
