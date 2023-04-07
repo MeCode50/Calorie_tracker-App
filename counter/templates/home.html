@@ -33,8 +33,9 @@
                 <h1>{{api.0.name | capfirst}} has a total of <strong> {{api.0.calories}} Calories</strong>
                     {%if api.0.calories > 200%}
                     <img src="{%static 'images/shocked.png'%}" class="img-responsive" />
+                    {endif}
                 </h1>
-                {%endif%}
+                    {%if api.0.sodium_mg > 100%}
 
                 <div class="alert alert-danger d-flex align-items-center mt-3" role="alert">
                     <div>
@@ -42,6 +43,7 @@
                         retention.
                     </div>
                 </div>
+                   {%endif%}
             </div>
             <div class="row justify-content-center mt-5 mb-5">
                 <div class="col-md-10 caloriescont shadow rounded">
