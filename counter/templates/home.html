@@ -19,7 +19,6 @@
                 <img src="{%static 'images/Logo.png'%}" class=" img-responsive logo mb-5 mt-5" />
                 <form method = 'POST'>
                     {%csrf_token%}
-                
                     <div class="input-group input-group-lg mb-5">
                         <input type="text" name="query" class="form-control inputstyle"
                             placeholder="search for calories in your food..." required>
@@ -153,6 +152,8 @@
                 }]
                 },
                 options: {
+                    responsive: true.
+                    maintainAspectRatio: false,
                 scales: {
                     y: {
                     beginAtZero: true
