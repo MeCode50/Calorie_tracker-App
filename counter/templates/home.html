@@ -33,7 +33,7 @@
                 <h1>{{api.0.name | capfirst}} has a total of <strong> {{api.0.calories}} Calories</strong>
                     {%if api.0.calories > 200%}
                     <img src="{%static 'images/shocked.png'%}" class="img-responsive" />
-                    {endif}
+                    {%endif%}
                 </h1>
                     {%if api.0.sodium_mg > 100%}
 
@@ -41,6 +41,15 @@
                     <div>
                         This food contains an high amount of sodium. High Sodium cuases Sever dehydration and water
                         retention.
+                    </div>
+                </div>
+                   {%endif%}
+
+                   {%if api.0.sugar_g > 100%}
+
+                <div class="alert alert-danger d-flex align-items-center mt-3" role="alert">
+                    <div>
+                        This food contains an high amount of sugar. High Sodium cuases Sever obesity
                     </div>
                 </div>
                    {%endif%}
@@ -107,12 +116,39 @@
                                         {{api.0.calories | div:294|mul:60|floatformat:0}} </strong> Minutes</p>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                            <canvas id="myChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {%endif%}
                 {%endif%}
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
 </body>
 
 </html>
